@@ -243,14 +243,6 @@
                 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .service-card:active {
-            transform: translateY(-5px);
-            box-shadow: 
-                inset -2px -2px 5px rgba(0, 0, 0, 0.2),
-                inset 2px 2px 5px rgba(255, 255, 255, 0.4),
-                0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
         .service-icon {
             font-size: 60px;
             margin-bottom: 15px;
@@ -301,11 +293,6 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-        }
-
-        .whatsapp-icon {
-            font-size: 24px;
-            color: #25D366;
         }
 
         .phone-number {
@@ -496,13 +483,6 @@
             transition: all 0.3s ease;
         }
 
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #32CD32;
-            box-shadow: 0 0 10px rgba(50, 205, 50, 0.3);
-        }
-
         .form-group textarea {
             resize: vertical;
             min-height: 100px;
@@ -567,15 +547,6 @@
             box-shadow: 0 5px 15px rgba(50, 205, 50, 0.3);
         }
 
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(50, 205, 50, 0.5);
-        }
-
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
         /* CHATBOT STYLES */
         .chatbot-window {
             display: none;
@@ -590,17 +561,6 @@
             z-index: 999;
             flex-direction: column;
             animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
 
         .chatbot-window.show {
@@ -640,20 +600,10 @@
             border-radius: 10px;
             max-width: 80%;
             font-size: 13px;
-            line-height: 1.4;
         }
 
-        .message.bot {
-            background: #f0f0f0;
-            color: #333;
-            align-self: flex-start;
-        }
-
-        .message.user {
-            background: #1E90FF;
-            color: white;
-            align-self: flex-end;
-        }
+        .message.bot { background: #f0f0f0; color: #333; align-self: flex-start; }
+        .message.user { background: #1E90FF; color: white; align-self: flex-end; }
 
         .chatbot-input {
             display: flex;
@@ -681,71 +631,11 @@
             border-radius: 8px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .chatbot-input button:hover {
-            background: #0066FF;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-                padding: 15px;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 10px;
-                justify-content: center;
-            }
-
-            nav a {
-                font-size: 12px;
-            }
-
-            .hero {
-                height: 300px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .quote-button {
-                right: 15px;
-                top: auto;
-                bottom: 120px;
-                transform: none;
-            }
-
-            .chatbot-button {
-                bottom: 15px;
-            }
-
-            .chatbot-window {
-                width: 90%;
-                height: 400px;
-                right: 5%;
-                bottom: 80px;
-            }
-
-            .modal-content {
-                width: 95%;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- HEADER -->
         <header>
             <div class="logo">
                 <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663071012581/gtUYfSekjOwwAJUb.jpg" alt="Fiestas Froggy Logo">
@@ -760,18 +650,11 @@
             </nav>
         </header>
 
-        <!-- HERO CAROUSEL -->
         <section class="hero" id="home">
             <div class="carousel">
-                <div class="carousel-slide active">
-                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663071012581/cYRpwrvBPNfFZsAP.jpeg" alt="Inflables">
-                </div>
-                <div class="carousel-slide">
-                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663071012581/KnGhNmrlIjBpMqyq.jpeg" alt="Dulces y Aguas">
-                </div>
-                <div class="carousel-slide">
-                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663071012581/BwMBOPgVLXKWvEae.jpeg" alt="Bolos">
-                </div>
+                <div class="carousel-slide active"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663071012581/cYRpwrvBPNfFZsAP.jpeg" alt="Inflables"></div>
+                <div class="carousel-slide"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663071012581/KnGhNmrlIjBpMqyq.jpeg" alt="Dulces y Aguas"></div>
+                <div class="carousel-slide"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663071012581/BwMBOPgVLXKWvEae.jpeg" alt="Bolos"></div>
                 <button class="carousel-arrow prev" onclick="changeSlide(-1)">❮</button>
                 <button class="carousel-arrow next" onclick="changeSlide(1)">❯</button>
             </div>
@@ -782,44 +665,18 @@
             </div>
         </section>
 
-        <!-- SERVICES SECTION -->
         <section class="services" id="servicios">
             <h2>Nuestros Servicios</h2>
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🎯</div>
-                    <div class="service-title">[MINIFERIAS]</div>
-                    <div class="service-description">Canicas, Dardos, Tiro al Blanco</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🏰</div>
-                    <div class="service-title">[INFLABLES]</div>
-                    <div class="service-description">Castillos, Toboganes, Piscinas</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🍔</div>
-                    <div class="service-title">[ALIMENTOS & GOLOSINAS]</div>
-                    <div class="service-description">Hamburguesas, Hot Dogs, Chalupas, Espiropapas, Crepaletas, Algodones</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🎨</div>
-                    <div class="service-title">[MAQUILLAJE INFANTIL]</div>
-                    <div class="service-description">Diseños Creativos y Seguros</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🖼️</div>
-                    <div class="service-title">[CABALLETES]</div>
-                    <div class="service-description">Pintura y Creatividad Artística</div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">🐂</div>
-                    <div class="service-title">[TORO MECÁNICO]</div>
-                    <div class="service-description">Diversión Extrema para Todos</div>
-                </div>
+                <div class="service-card"><div class="service-icon">🎯</div><div class="service-title">[MINIFERIAS]</div><div class="service-description">Canicas, Dardos, Tiro al Blanco</div></div>
+                <div class="service-card"><div class="service-icon">🏰</div><div class="service-title">[INFLABLES]</div><div class="service-description">Castillos, Toboganes, Piscinas</div></div>
+                <div class="service-card"><div class="service-icon">🍔</div><div class="service-title">[ALIMENTOS & GOLOSINAS]</div><div class="service-description">Hamburguesas, Hot Dogs, Chalupas, Espiropapas, Crepaletas, Algodones</div></div>
+                <div class="service-card"><div class="service-icon">🎨</div><div class="service-title">[MAQUILLAJE INFANTIL]</div><div class="service-description">Diseños Creativos y Seguros</div></div>
+                <div class="service-card"><div class="service-icon">🖼️</div><div class="service-title">[CABALLETES]</div><div class="service-description">Pintura y Creatividad Artística</div></div>
+                <div class="service-card"><div class="service-icon">🐂</div><div class="service-title">[TORO MECÁNICO]</div><div class="service-description">Diversión Extrema para Todos</div></div>
             </div>
         </section>
 
-        <!-- CONTACT SECTION -->
         <section class="contact" id="contacto">
             <div class="contact-content">
                 <div class="contact-phones">
@@ -834,7 +691,6 @@
         </section>
     </div>
 
-    <!-- FLOATING QUOTE BUTTON -->
     <div class="floating-button quote-button" onclick="openQuoteModal()">
         <div class="quote-button-content">
             <div class="quote-frog">🐸</div>
@@ -842,7 +698,10 @@
         </div>
     </div>
 
-    <!-- QUOTE MODAL -->
+    <div class="floating-button chatbot-button" onclick="toggleChatbot()">
+        <div class="chat-circle">💬</div>
+    </div>
+
     <div id="quoteModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -852,46 +711,40 @@
             <form id="quoteForm">
                 <div class="form-group">
                     <label for="name">Nombre Completo</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Teléfono</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <input type="tel" id="phone" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" required>
                 </div>
                 <div class="form-group">
                     <label for="event">Tipo de Evento</label>
-                    <input type="text" id="event" name="event" placeholder="Ej: Cumpleaños, Boda, Corporativo" required>
+                    <input type="text" id="event" placeholder="Ej: Cumpleaños, Boda" required>
                 </div>
                 <div class="form-group">
                     <label for="message">Mensaje</label>
-                    <textarea id="message" name="message" placeholder="Cuéntanos sobre tu evento..."></textarea>
+                    <textarea id="message" required></textarea>
                 </div>
                 <div class="calendar-container">
-                    <h3>Selecciona la Fecha del Evento</h3>
+                    <h3>Selecciona la fecha del evento:</h3>
                     <div class="calendar" id="calendar"></div>
                 </div>
-                <button type="submit" class="submit-btn">Enviar Cotización</button>
+                <button type="submit" class="submit-btn">Enviar Cotización por WhatsApp</button>
             </form>
         </div>
     </div>
 
-    <!-- CHATBOT BUTTON -->
-    <div class="floating-button chatbot-button">
-        <div class="chat-circle" onclick="toggleChatbot()">💬</div>
-    </div>
-
-    <!-- CHATBOT WINDOW -->
     <div id="chatbotWindow" class="chatbot-window">
         <div class="chatbot-header">
             <span>¡Chatbot Activo!</span>
-            <button class="chatbot-close" onclick="closeChatbot()">✕</button>
+            <button class="chatbot-close" onclick="toggleChatbot()">✕</button>
         </div>
-        <div class="chatbot-messages" id="chatMessages">
-            <div class="message bot">¡Hola! Contáctanos. ¿En qué podemos ayudarte?</div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="message bot">¡Hola! ¿En qué puedo ayudarte hoy? Puedes preguntar por precios o solicitar una cotización.</div>
         </div>
         <div class="chatbot-input">
             <input type="text" id="chatInput" placeholder="Escribe tu mensaje..." onkeypress="handleChatInput(event)">
@@ -900,188 +753,105 @@
     </div>
 
     <script>
-        // CAROUSEL FUNCTIONALITY
+        // CAROUSEL LOGIC
         let currentSlideIndex = 0;
         const slides = document.querySelectorAll('.carousel-slide');
         const dots = document.querySelectorAll('.carousel-dot');
 
-        function showSlide(n) {
+        function showSlide(index) {
             slides.forEach(slide => slide.classList.remove('active'));
             dots.forEach(dot => dot.classList.remove('active'));
-            
-            slides[n].classList.add('active');
-            dots[n].classList.add('active');
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
         }
 
-        function changeSlide(n) {
-            currentSlideIndex = (currentSlideIndex + n + slides.length) % slides.length;
+        function changeSlide(direction) {
+            currentSlideIndex = (currentSlideIndex + direction + slides.length) % slides.length;
             showSlide(currentSlideIndex);
         }
 
-        function currentSlide(n) {
-            currentSlideIndex = n;
+        function currentSlide(index) {
+            currentSlideIndex = index;
             showSlide(currentSlideIndex);
         }
 
-        // Auto-rotate carousel every 5 seconds
-        setInterval(() => {
-            changeSlide(1);
-        }, 5000);
+        setInterval(() => changeSlide(1), 5000);
 
-        // QUOTE MODAL FUNCTIONALITY
-        function openQuoteModal() {
-            document.getElementById('quoteModal').classList.add('show');
-            generateCalendar();
+        // MODAL LOGIC
+        function openQuoteModal() { document.getElementById('quoteModal').classList.add('show'); }
+        function closeQuoteModal() { document.getElementById('quoteModal').classList.remove('show'); }
+
+        // CALENDAR LOGIC
+        const calendar = document.getElementById('calendar');
+        for (let i = 1; i <= 31; i++) {
+            const day = document.createElement('div');
+            day.className = 'calendar-day';
+            day.textContent = i;
+            day.onclick = function() {
+                document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+                this.classList.add('selected');
+            };
+            calendar.appendChild(day);
         }
 
-        function closeQuoteModal() {
-            document.getElementById('quoteModal').classList.remove('show');
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('quoteModal');
-            if (event.target == modal) {
-                modal.classList.remove('show');
-            }
-        }
-
-        // CALENDAR FUNCTIONALITY
-        function generateCalendar() {
-            const calendar = document.getElementById('calendar');
-            calendar.innerHTML = '';
-            
-            const today = new Date();
-            const currentMonth = today.getMonth();
-            const currentYear = today.getFullYear();
-            
-            // Days of week headers
-            const daysOfWeek = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sab'];
-            daysOfWeek.forEach(day => {
-                const dayHeader = document.createElement('div');
-                dayHeader.className = 'calendar-day';
-                dayHeader.style.fontWeight = '700';
-                dayHeader.style.backgroundColor = '#2d5016';
-                dayHeader.style.color = 'white';
-                dayHeader.textContent = day;
-                calendar.appendChild(dayHeader);
-            });
-            
-            // Get first day of month and number of days
-            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
-            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-            
-            // Empty cells before month starts
-            for (let i = 0; i < firstDay; i++) {
-                const emptyDay = document.createElement('div');
-                emptyDay.className = 'calendar-day';
-                emptyDay.style.visibility = 'hidden';
-                calendar.appendChild(emptyDay);
-            }
-            
-            // Days of month
-            for (let day = 1; day <= daysInMonth; day++) {
-                const dayCell = document.createElement('div');
-                dayCell.className = 'calendar-day';
-                dayCell.textContent = day;
-                dayCell.onclick = function() {
-                    document.querySelectorAll('.calendar-day.selected').forEach(d => d.classList.remove('selected'));
-                    this.classList.add('selected');
-                }
-                calendar.appendChild(dayCell);
-            }
-        }
-
-        // FORM SUBMISSION
+        // FORM SUBMISSION (OPTION B: WHATSAPP)
         document.getElementById('quoteForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('¡Gracias por tu solicitud! Nos pondremos en contacto pronto.');
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const eventType = document.getElementById('event').value;
+            const message = document.getElementById('message').value;
+            const date = document.querySelector('.calendar-day.selected')?.textContent || 'No seleccionada';
+            
+            const text = `Hola Fiestas Froggy, me gustaría solicitar una cotización:\n\n*Nombre:* ${name}\n*Teléfono:* ${phone}\n*Email:* ${email}\n*Tipo de Evento:* ${eventType}\n*Día del mes:* ${date}\n*Mensaje:* ${message}`;
+            const whatsappUrl = `https://wa.me/522215579943?text=${encodeURIComponent(text)}`;
+            
+            window.open(whatsappUrl, '_blank');
             closeQuoteModal();
             this.reset();
         });
 
-        // CHATBOT FUNCTIONALITY
-        function toggleChatbot() {
-            const chatbot = document.getElementById('chatbotWindow');
-            chatbot.classList.toggle('show');
-        }
-
-        function closeChatbot() {
-            document.getElementById('chatbotWindow').classList.remove('show');
-        }
+        // CHATBOT LOGIC
+        function toggleChatbot() { document.getElementById('chatbotWindow').classList.toggle('show'); }
 
         function sendChatMessage() {
             const input = document.getElementById('chatInput');
             const message = input.value.trim();
-            
             if (!message) return;
-            
-            const messagesContainer = document.getElementById('chatMessages');
-            
-            // Add user message
+
+            const messagesContainer = document.getElementById('chatbotMessages');
             const userMsg = document.createElement('div');
             userMsg.className = 'message user';
             userMsg.textContent = message;
             messagesContainer.appendChild(userMsg);
-            
             input.value = '';
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            
-            // Bot response
+
             setTimeout(() => {
-                const lowerMessage = message.toLowerCase();
-                let botResponse = '';
-                
-                if (lowerMessage.includes('precio') || lowerMessage.includes('costo') || lowerMessage.includes('valor')) {
-                    botResponse = 'Para conocer nuestros precios, por favor solicita una cotización con nuestro equipo. ¡Tenemos opciones para todos los presupuestos!';
-                } else if (lowerMessage.includes('inflables')) {
-                    botResponse = 'Contamos con una gran variedad de inflables: castillos, toboganes, piscinas y mucho más. ¿Te gustaría conocer más detalles?';
-                } else if (lowerMessage.includes('comida') || lowerMessage.includes('alimentos') || lowerMessage.includes('comidas')) {
-                    botResponse = 'Ofrecemos: Hamburguesas, Hot Dogs, Chalupas, Espiropapas, Crepaletas, Algodones y más. ¿Qué te interesa?';
-                } else if (lowerMessage.includes('cotización')) {
-                    botResponse = 'Para solicitar una cotización, haz clic en el botón de la rana verde. ¡Te ayudaremos a planificar tu evento!';
-                } else {
-                    botResponse = 'Entiendo tu pregunta. Para más información detallada, te recomiendo que solicites una cotización o nos contactes directamente. ¿Hay algo más en lo que pueda ayudarte?';
-                }
-                
                 const botMsg = document.createElement('div');
                 botMsg.className = 'message bot';
-                botMsg.textContent = botResponse;
-                messagesContainer.appendChild(botMsg);
-                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                const lowerMsg = message.toLowerCase();
                 
-                // Check if should redirect to WhatsApp
-                if (lowerMessage.includes('cotización') && !message.includes('solicitar')) {
+                if (lowerMsg.includes('cotización') || lowerMsg.includes('precio') || lowerMsg.includes('cuanto')) {
+                    botMsg.textContent = "¡Claro! Te redirijo a nuestro WhatsApp para darte una cotización personalizada.";
+                    messagesContainer.appendChild(botMsg);
                     setTimeout(() => {
-                        const whatsappMsg = 'Parece que necesitas ayuda especial. ¿Te gustaría contactarnos por WhatsApp?';
-                        const whatsappBotMsg = document.createElement('div');
-                        whatsappBotMsg.className = 'message bot';
-                        whatsappBotMsg.textContent = whatsappMsg;
-                        messagesContainer.appendChild(whatsappBotMsg);
-                        
-                        closeChatbot();
-                        setTimeout(() => {
-                            window.open('https://wa.me/50222126095?text=Hola%20Fiestas%20Froggy%2C%20me%20gustaría%20solicitar%20una%20cotización...', '_blank');
-                        }, 1000);
-                    }, 500);
+                        window.open('https://wa.me/522215579943?text=Hola%20Fiestas%20Froggy%2C%20me%20gustaría%20solicitar%20una%20cotización...', '_blank');
+                        toggleChatbot();
+                    }, 1500);
+                } else {
+                    botMsg.textContent = "Gracias por tu mensaje. Para detalles específicos, por favor solicita una cotización o escríbenos directamente.";
+                    messagesContainer.appendChild(botMsg);
                 }
-            }, 500);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 800);
         }
 
-        function handleChatInput(event) {
-            if (event.key === 'Enter') {
-                sendChatMessage();
-            }
-        }
+        function handleChatInput(event) { if (event.key === 'Enter') sendChatMessage(); }
 
-        // Close modals when clicking outside
-        document.addEventListener('click', function(event) {
-            const modal = document.getElementById('quoteModal');
-            const chatbot = document.getElementById('chatbotWindow');
-            
-            if (event.target === modal) {
-                closeQuoteModal();
-            }
-        });
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('quoteModal')) closeQuoteModal();
+        }
     </script>
 </body>
 </html>
