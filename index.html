@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiestas Froggy - Alquiler de Eventos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #FF1493, #FFD700, #00CED1, #FF69B4, #32CD32, #FF8C00);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #2d5016 0%, #3d7c1f 100%);
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+            transform: scale(1.1);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #FFD700;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* HERO SECTION WITH CAROUSEL */
+        .hero {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(45, 80, 22, 0.3), rgba(61, 124, 31, 0.3));
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0;
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .carousel-controls {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+
+        .carousel-dot.active {
+            background: white;
+            transform: scale(1.3);
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2d5016;
+            font-weight: bold;
+        }
+
+        .carousel-arrow:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-arrow.prev {
+            left: 20px;
+        }
+
+        .carousel-arrow.next {
+            right: 20px;
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            padding: 60px 40px;
+            background: #f8f9fa;
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #2d5016;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #90EE90 0%, #7CCD7C 100%);
+            border: 4px solid #2d5016;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 
+                inset -3px -3px 8px rgba(0, 0, 0, 0.2),
+                inset 3px 3px 8px rgba(255, 255, 255, 0.5),
+                0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transform: translateY(0);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                inset -5px -5px 12px rgba(0, 0, 0, 0.3),
+                inset 5px 5px 12px rgba(255, 255, 255, 0.6),
+                0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-card:active {
+            transform: translateY(-5px);
+            box-shadow: 
+                inset -2px -2px 5px rgba(0, 0, 0, 0.2),
+                inset 2px 2px 5px rgba(255, 255, 255, 0.4),
+                0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .service-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d5016;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .service-description {
+            font-size: 13px;
+            color: #333;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            background: linear-gradient(135deg, #FFB347 0%, #FFA500 100%);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 0 40px 40px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .contact-phones, .contact-email {
+            color: #2d5016;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .contact-phones {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .whatsapp-icon {
+            font-size: 24px;
+            color: #25D366;
+        }
+
+        .phone-number {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d5016;
+        }
+
+        .contact-email {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        /* FLOATING ELEMENTS */
+        .floating-button {
+            position: fixed;
+            right: 30px;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .quote-button {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .quote-button-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quote-button-content:hover {
+            transform: scale(1.1);
+        }
+
+        .quote-frog {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #32CD32 0%, #228B22 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .quote-text {
+            font-size: 12px;
+            font-weight: 700;
+            color: #2d5016;
+            text-align: center;
+            max-width: 120px;
+            line-height: 1.3;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .chatbot-button {
+            bottom: 30px;
+        }
+
+        .chat-circle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1E90FF 0%, #0066FF 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(30, 144, 255, 0.4);
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .chat-circle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(30, 144, 255, 0.6);
+        }
+
+        /* MODAL STYLES */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #2d5016;
+            padding-bottom: 15px;
+        }
+
+        .modal-header h2 {
+            color: #2d5016;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #2d5016;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2d5016;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #2d5016;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #32CD32;
+            box-shadow: 0 0 10px rgba(50, 205, 50, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .calendar-container {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #2d5016;
+        }
+
+        .calendar-container h3 {
+            color: #2d5016;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .calendar-day {
+            padding: 10px;
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .calendar-day:hover {
+            background: #90EE90;
+            border-color: #2d5016;
+        }
+
+        .calendar-day.selected {
+            background: #2d5016;
+            color: white;
+            border-color: #2d5016;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #32CD32 0%, #228B22 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(50, 205, 50, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(50, 205, 50, 0.5);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        /* CHATBOT STYLES */
+        .chatbot-window {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 450px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            flex-direction: column;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .chatbot-window.show {
+            display: flex;
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, #1E90FF 0%, #0066FF 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            padding: 10px 15px;
+            border-radius: 10px;
+            max-width: 80%;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .message.bot {
+            background: #f0f0f0;
+            color: #333;
+            align-self: flex-start;
+        }
+
+        .message.user {
+            background: #1E90FF;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .chatbot-input {
+            display: flex;
+            gap: 10px;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background: white;
+            border-radius: 0 0 15px 15px;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+        }
+
+        .chatbot-input button {
+            padding: 10px 15px;
+            background: #1E90FF;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-input button:hover {
+            background: #0066FF;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                height: 300px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .quote-button {
+                right: 15px;
+                top: auto;
+                bottom: 120px;
+                transform: none;
+            }
+
+            .chatbot-button {
+                bottom: 15px;
+            }
+
+            .chatbot-window {
+                width: 90%;
+                height: 400px;
+                right: 5%;
+                bottom: 80px;
+            }
+
+            .modal-content {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <div class="logo">
+                <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663071012581/gtUYfSekjOwwAJUb.jpg" alt="Fiestas Froggy Logo">
+                <span>FIESTAS FROGGY</span>
+            </div>
+            <nav>
+                <a href="#home">HOME</a>
+                <a href="#servicios">SERVICIOS</a>
+                <a href="#nosotros">NOSOTROS</a>
+                <a href="#galeria">GALERÍA</a>
+                <a href="#contacto">CONTACTO</a>
+            </nav>
+        </header>
+
+        <!-- HERO CAROUSEL -->
+        <section class="hero" id="home">
+            <div class="carousel">
+                <div class="carousel-slide active">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663071012581/cYRpwrvBPNfFZsAP.jpeg" alt="Inflables">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663071012581/KnGhNmrlIjBpMqyq.jpeg" alt="Dulces y Aguas">
+                </div>
+                <div class="carousel-slide">
+                    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663071012581/BwMBOPgVLXKWvEae.jpeg" alt="Bolos">
+                </div>
+                <button class="carousel-arrow prev" onclick="changeSlide(-1)">❮</button>
+                <button class="carousel-arrow next" onclick="changeSlide(1)">❯</button>
+            </div>
+            <div class="carousel-controls">
+                <div class="carousel-dot active" onclick="currentSlide(0)"></div>
+                <div class="carousel-dot" onclick="currentSlide(1)"></div>
+                <div class="carousel-dot" onclick="currentSlide(2)"></div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section class="services" id="servicios">
+            <h2>Nuestros Servicios</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <div class="service-title">[MINIFERIAS]</div>
+                    <div class="service-description">Canicas, Dardos, Tiro al Blanco</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏰</div>
+                    <div class="service-title">[INFLABLES]</div>
+                    <div class="service-description">Castillos, Toboganes, Piscinas</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🍔</div>
+                    <div class="service-title">[ALIMENTOS & GOLOSINAS]</div>
+                    <div class="service-description">Hamburguesas, Hot Dogs, Chalupas, Espiropapas, Crepaletas, Algodones</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <div class="service-title">[MAQUILLAJE INFANTIL]</div>
+                    <div class="service-description">Diseños Creativos y Seguros</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🖼️</div>
+                    <div class="service-title">[CABALLETES]</div>
+                    <div class="service-description">Pintura y Creatividad Artística</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🐂</div>
+                    <div class="service-title">[TORO MECÁNICO]</div>
+                    <div class="service-description">Diversión Extrema para Todos</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section class="contact" id="contacto">
+            <div class="contact-content">
+                <div class="contact-phones">
+                    <span>📞 Tels.:</span>
+                    <span class="phone-number">222 4919057 / 222 1260953 / 222 691 2027 / 222 618 6779</span>
+                </div>
+                <div class="contact-email">
+                    <span>📧 Email:</span>
+                    <span style="display: block; margin-top: 5px;">fiestasfroggy@hotmail.com</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FLOATING QUOTE BUTTON -->
+    <div class="floating-button quote-button" onclick="openQuoteModal()">
+        <div class="quote-button-content">
+            <div class="quote-frog">🐸</div>
+            <div class="quote-text">SOLICITAR COTIZACIÓN</div>
+        </div>
+    </div>
+
+    <!-- QUOTE MODAL -->
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Solicitar Cotización</h2>
+                <button class="close-btn" onclick="closeQuoteModal()">✕</button>
+            </div>
+            <form id="quoteForm">
+                <div class="form-group">
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Teléfono</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="event">Tipo de Evento</label>
+                    <input type="text" id="event" name="event" placeholder="Ej: Cumpleaños, Boda, Corporativo" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" placeholder="Cuéntanos sobre tu evento..."></textarea>
+                </div>
+                <div class="calendar-container">
+                    <h3>Selecciona la Fecha del Evento</h3>
+                    <div class="calendar" id="calendar"></div>
+                </div>
+                <button type="submit" class="submit-btn">Enviar Cotización</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CHATBOT BUTTON -->
+    <div class="floating-button chatbot-button">
+        <div class="chat-circle" onclick="toggleChatbot()">💬</div>
+    </div>
+
+    <!-- CHATBOT WINDOW -->
+    <div id="chatbotWindow" class="chatbot-window">
+        <div class="chatbot-header">
+            <span>¡Chatbot Activo!</span>
+            <button class="chatbot-close" onclick="closeChatbot()">✕</button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="message bot">¡Hola! Contáctanos. ¿En qué podemos ayudarte?</div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatInput" placeholder="Escribe tu mensaje..." onkeypress="handleChatInput(event)">
+            <button onclick="sendChatMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        // CAROUSEL FUNCTIONALITY
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[n].classList.add('active');
+            dots[n].classList.add('active');
+        }
+
+        function changeSlide(n) {
+            currentSlideIndex = (currentSlideIndex + n + slides.length) % slides.length;
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(n) {
+            currentSlideIndex = n;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto-rotate carousel every 5 seconds
+        setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+
+        // QUOTE MODAL FUNCTIONALITY
+        function openQuoteModal() {
+            document.getElementById('quoteModal').classList.add('show');
+            generateCalendar();
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.remove('show');
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('quoteModal');
+            if (event.target == modal) {
+                modal.classList.remove('show');
+            }
+        }
+
+        // CALENDAR FUNCTIONALITY
+        function generateCalendar() {
+            const calendar = document.getElementById('calendar');
+            calendar.innerHTML = '';
+            
+            const today = new Date();
+            const currentMonth = today.getMonth();
+            const currentYear = today.getFullYear();
+            
+            // Days of week headers
+            const daysOfWeek = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sab'];
+            daysOfWeek.forEach(day => {
+                const dayHeader = document.createElement('div');
+                dayHeader.className = 'calendar-day';
+                dayHeader.style.fontWeight = '700';
+                dayHeader.style.backgroundColor = '#2d5016';
+                dayHeader.style.color = 'white';
+                dayHeader.textContent = day;
+                calendar.appendChild(dayHeader);
+            });
+            
+            // Get first day of month and number of days
+            const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+            const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+            
+            // Empty cells before month starts
+            for (let i = 0; i < firstDay; i++) {
+                const emptyDay = document.createElement('div');
+                emptyDay.className = 'calendar-day';
+                emptyDay.style.visibility = 'hidden';
+                calendar.appendChild(emptyDay);
+            }
+            
+            // Days of month
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayCell = document.createElement('div');
+                dayCell.className = 'calendar-day';
+                dayCell.textContent = day;
+                dayCell.onclick = function() {
+                    document.querySelectorAll('.calendar-day.selected').forEach(d => d.classList.remove('selected'));
+                    this.classList.add('selected');
+                }
+                calendar.appendChild(dayCell);
+            }
+        }
+
+        // FORM SUBMISSION
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu solicitud! Nos pondremos en contacto pronto.');
+            closeQuoteModal();
+            this.reset();
+        });
+
+        // CHATBOT FUNCTIONALITY
+        function toggleChatbot() {
+            const chatbot = document.getElementById('chatbotWindow');
+            chatbot.classList.toggle('show');
+        }
+
+        function closeChatbot() {
+            document.getElementById('chatbotWindow').classList.remove('show');
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            const messagesContainer = document.getElementById('chatMessages');
+            
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user';
+            userMsg.textContent = message;
+            messagesContainer.appendChild(userMsg);
+            
+            input.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            
+            // Bot response
+            setTimeout(() => {
+                const lowerMessage = message.toLowerCase();
+                let botResponse = '';
+                
+                if (lowerMessage.includes('precio') || lowerMessage.includes('costo') || lowerMessage.includes('valor')) {
+                    botResponse = 'Para conocer nuestros precios, por favor solicita una cotización con nuestro equipo. ¡Tenemos opciones para todos los presupuestos!';
+                } else if (lowerMessage.includes('inflables')) {
+                    botResponse = 'Contamos con una gran variedad de inflables: castillos, toboganes, piscinas y mucho más. ¿Te gustaría conocer más detalles?';
+                } else if (lowerMessage.includes('comida') || lowerMessage.includes('alimentos') || lowerMessage.includes('comidas')) {
+                    botResponse = 'Ofrecemos: Hamburguesas, Hot Dogs, Chalupas, Espiropapas, Crepaletas, Algodones y más. ¿Qué te interesa?';
+                } else if (lowerMessage.includes('cotización')) {
+                    botResponse = 'Para solicitar una cotización, haz clic en el botón de la rana verde. ¡Te ayudaremos a planificar tu evento!';
+                } else {
+                    botResponse = 'Entiendo tu pregunta. Para más información detallada, te recomiendo que solicites una cotización o nos contactes directamente. ¿Hay algo más en lo que pueda ayudarte?';
+                }
+                
+                const botMsg = document.createElement('div');
+                botMsg.className = 'message bot';
+                botMsg.textContent = botResponse;
+                messagesContainer.appendChild(botMsg);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+                
+                // Check if should redirect to WhatsApp
+                if (lowerMessage.includes('cotización') && !message.includes('solicitar')) {
+                    setTimeout(() => {
+                        const whatsappMsg = 'Parece que necesitas ayuda especial. ¿Te gustaría contactarnos por WhatsApp?';
+                        const whatsappBotMsg = document.createElement('div');
+                        whatsappBotMsg.className = 'message bot';
+                        whatsappBotMsg.textContent = whatsappMsg;
+                        messagesContainer.appendChild(whatsappBotMsg);
+                        
+                        closeChatbot();
+                        setTimeout(() => {
+                            window.open('https://wa.me/50222126095?text=Hola%20Fiestas%20Froggy%2C%20me%20gustaría%20solicitar%20una%20cotización...', '_blank');
+                        }, 1000);
+                    }, 500);
+                }
+            }, 500);
+        }
+
+        function handleChatInput(event) {
+            if (event.key === 'Enter') {
+                sendChatMessage();
+            }
+        }
+
+        // Close modals when clicking outside
+        document.addEventListener('click', function(event) {
+            const modal = document.getElementById('quoteModal');
+            const chatbot = document.getElementById('chatbotWindow');
+            
+            if (event.target === modal) {
+                closeQuoteModal();
+            }
+        });
+    </script>
+</body>
+</html>
